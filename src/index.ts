@@ -9,7 +9,7 @@ export class App {
   app: express.Express;
 
   constructor() {
-    const port = parseInt(process.env.PORT) || 8080;
+    const port = parseInt(process.env.PORT || "8080");
     this.app = express();
     this.app.use(express.json());
 
