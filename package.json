@@ -9,7 +9,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "lint": "eslint src/**/**.ts",
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
     "test": "jest"
   },
   "devDependencies": {
@@ -22,15 +22,17 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22",
     "prettier": "^2.8.7",
     "ts-jest": "28.0.8",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^5.0.2"
   },
   "dependencies": {
     "@line/bot-sdk": "^7.5.2",
     "express": "^4.18.2",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.4"
   },
   "jest": {
     "moduleFileExtensions": [
