@@ -1,5 +1,6 @@
 import { WebhookRequestBody } from "@line/bot-sdk";
 import { Request, Response } from "express";
+import { handleMessageEvent } from "./handleMessageEvent";
 
 type LineRequestType = Request<object, object, WebhookRequestBody>;
 
@@ -19,9 +20,11 @@ export const handleLineRequest = async (
     switch (event.type) {
       case "follow": {
         console.log("follow");
+        return;
       }
       case "message": {
-        console.log("messageきたよ");
+        await handleMessageEvent(event);
+        return;
       }
     }
   });
