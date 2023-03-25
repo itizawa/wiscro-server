@@ -13,6 +13,9 @@ export const handleMessageEvent = async (event: MessageEvent) => {
   }
 
   if (isValidUrl(event.message.text)) {
-    await fetchAndSavePageUseCase.execute(event.message.text);
+    await fetchAndSavePageUseCase.execute(
+      event.message.text,
+      event.source.userId
+    );
   }
 };
