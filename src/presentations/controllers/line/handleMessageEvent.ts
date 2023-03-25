@@ -1,8 +1,8 @@
 import { MessageEvent } from "@line/bot-sdk";
+import { FetchAndSavePageUseCase } from "~/useCases/Page/FetchAndSavePageUseCase";
 import { isValidUrl } from "~/utils/isValidUrl";
 
-// TODO: ここはDBに保存するようにする
-export const links: string[] = [];
+const fetchAndSavePageUseCase = new FetchAndSavePageUseCase();
 
 /**
  * LINEからのメッセージイベントを処理する
@@ -12,12 +12,7 @@ export const handleMessageEvent = async (event: MessageEvent) => {
     return;
   }
 
-  if (event.message.text === "見せて") {
-    console.log(links);
-    return;
-  }
-
   if (isValidUrl(event.message.text)) {
-    links.push(event.message.text);
+    await fetchAndSavePageUseCase.execute(event.message.text);
   }
 };
