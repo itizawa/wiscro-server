@@ -1,10 +1,24 @@
 import express from "express";
-const app: express.Express = express();
+import { setupExpressRoutes } from "./presentations/controllers";
 
-app.get("/", (req: express.Request, res: express.Response) => {
-  res.send("こんにちは!");
-});
+/*****************************
+ * Main Process              *
+ *****************************/
+export class App {
+  app: express.Express;
 
-app.listen(3000, () => {
-  console.log("ポート3000番で起動しました。");
-});
+  constructor() {
+    const port = parseInt(process.env.PORT) || 8080;
+    this.app = express();
+    this.app.use(express.json());
+
+    // setup Express Routes
+    setupExpressRoutes(this.app);
+
+    this.app.listen(port, () => {
+      console.log(`Express app listening at http://localhost:${port}`);
+    });
+  }
+}
+
+new App();

@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    name: Node.js ubuntu-latest 14.x
+    name: Node.js ubuntu-latest 18.x
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
@@ -62,7 +62,7 @@ jobs:
           yarn build
 
   test:
-    name: Node.js ubuntu-latest 14.x
+    name: Node.js ubuntu-latest 18.x
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
@@ -113,7 +113,7 @@ jobs:
           yarn test
 
   build:
-    name: Node.js ubuntu-latest 14.x
+    name: Node.js ubuntu-latest 18.x
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
