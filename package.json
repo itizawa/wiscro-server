@@ -1,0 +1,12 @@
+{
+  "name": "line-stock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:itizaworld/line-stock.git",
+  "author": "itizawa <itizawa.pen@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.15.8",
+    "typescript": "^5.0.2"
+  }
+}
