@@ -1,2 +1,2 @@
-# line-stock
-lineでstockできるやつ
+# Wiscro Server
+Wiscro Server
