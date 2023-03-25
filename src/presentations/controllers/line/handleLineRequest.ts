@@ -1,8 +1,11 @@
 import { WebhookRequestBody } from "@line/bot-sdk";
 import { Request, Response } from "express";
+import { CreateLineUserUseCase } from "~/useCases/LineUser/CreateLineUserUseCase";
 import { handleMessageEvent } from "./handleMessageEvent";
 
 type LineRequestType = Request<object, object, WebhookRequestBody>;
+
+const createLineUserUseCase = new CreateLineUserUseCase();
 
 /**
  * LINEからのリクエストをハンドルする関数
@@ -19,7 +22,9 @@ export const handleLineRequest = async (
 
     switch (event.type) {
       case "follow": {
-        console.log("follow");
+        if (event.source.type === "user") {
+          await createLineUserUseCase.execute(event.source.userId);
+        }
         return;
       }
       case "message": {

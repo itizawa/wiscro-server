@@ -22,7 +22,8 @@ export class App {
   }
 
   async setupDB() {
-    const mongoUrl = process.env.MONGO_URI || "mongodb://localhost:27017/webev";
+    const mongoUrl =
+      process.env.MONGO_URI || "mongodb://localhost:27017/wiscro";
     await connect(mongoUrl);
   }
 }
