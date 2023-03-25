@@ -1,6 +1,6 @@
 import * as express from "express";
+import { handleLineRequest } from "./line/handleLineRequest";
 
 export const setupExpressRoutes = (express: express.Express): void => {
-  // magazines
-  express.post("/api/line", () => console.log("hoge"));
+  express.post("/api/line", handleLineRequest);
 };
