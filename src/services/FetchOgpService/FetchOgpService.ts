@@ -14,7 +14,7 @@ export class FetchOgpService {
    * @param {string} url
    * @returns
    */
-  async fetchOgpByUrl(url: string): Promise<Page> {
+  async fetchOgpByUrl(url: string): Promise<Omit<Page, "lineUser">> {
     try {
       const result = await client.fetch(url);
 

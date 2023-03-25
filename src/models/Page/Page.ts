@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { LineUser } from "../LineUser";
 
 export interface Page {
   url: string;
@@ -8,6 +9,7 @@ export interface Page {
   image?: string;
   body?: string;
   siteName?: string;
+  lineUser: LineUser;
 }
 
 const userSchema = new Schema<Page>({
@@ -18,6 +20,7 @@ const userSchema = new Schema<Page>({
   image: { type: String },
   body: { type: String },
   siteName: { type: String },
+  lineUser: { type: Schema.Types.ObjectId, ref: "lineUser" },
 });
 
 export const PageModel = model<Page>("Page", userSchema);
