@@ -1,11 +1,11 @@
 import { WebhookRequestBody } from "@line/bot-sdk";
 import { Request, Response } from "express";
-import { CreateLineUserUseCase } from "~/useCases/LineUser/CreateLineUserUseCase";
+import { UpsertLineUserUseCase } from "~/useCases/LineUser/UpsertLineUserUseCase";
 import { handleMessageEvent } from "./handleMessageEvent";
 
 type LineRequestType = Request<object, object, WebhookRequestBody>;
 
-const createLineUserUseCase = new CreateLineUserUseCase();
+const upsertLineUserUseCase = new UpsertLineUserUseCase();
 
 /**
  * LINEからのリクエストをハンドルする関数
@@ -23,7 +23,7 @@ export const handleLineRequest = async (
     switch (event.type) {
       case "follow": {
         if (event.source.type === "user") {
-          await createLineUserUseCase.execute(event.source.userId);
+          await upsertLineUserUseCase.execute(event.source.userId);
         }
         return;
       }

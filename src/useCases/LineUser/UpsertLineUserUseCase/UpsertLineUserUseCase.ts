@@ -3,11 +3,13 @@ import { LineApiService } from "~/services/LineApiService/LineApiService";
 
 const lineApiService = new LineApiService();
 
-export class CreateLineUserUseCase {
+export class UpsertLineUserUseCase {
   async execute(userId: string) {
     const lienUser = await lineApiService.getProfile(userId);
-    await LineUserModel.create(lienUser);
-
-    console.log("CreateLineUserUseCaseです！");
+    await LineUserModel.updateOne(
+      { lineUserId: lienUser.lineUserId },
+      lienUser,
+      { upsert: true }
+    );
   }
 }
