@@ -1,4 +1,5 @@
 import express from "express";
+import { connect } from "mongoose";
 import { setupExpressRoutes } from "./presentations/controllers";
 
 /*****************************
@@ -19,6 +20,12 @@ export class App {
       console.log(`Express app listening at http://localhost:${port}`);
     });
   }
+
+  async setupDB() {
+    const mongoUrl = process.env.MONGO_URI || "mongodb://localhost:27017/webev";
+    await connect(mongoUrl);
+  }
 }
 
-new App();
+const app = new App();
+app.setupDB();
