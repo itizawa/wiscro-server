@@ -12,15 +12,18 @@ export interface Page {
   lineUser: LineUser;
 }
 
-const userSchema = new Schema<Page>({
-  url: { type: String, required: true },
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  favicon: { type: String },
-  image: { type: String },
-  body: { type: String },
-  siteName: { type: String },
-  lineUser: { type: Schema.Types.ObjectId, required: true, ref: "lineUser" },
-});
+const userSchema = new Schema<Page>(
+  {
+    url: { type: String, required: true },
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    favicon: { type: String },
+    image: { type: String },
+    body: { type: String },
+    siteName: { type: String },
+    lineUser: { type: Schema.Types.ObjectId, required: true, ref: "lineUser" },
+  },
+  { timestamps: true }
+);
 
 export const PageModel = model<Page>("Page", userSchema);
