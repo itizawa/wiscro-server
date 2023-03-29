@@ -2,6 +2,6 @@ import { Page, PageModel } from "~/models/Page";
 
 export class ListPagesUseCase {
   async execute(): Promise<Page[]> {
-    return await PageModel.find();
+    return await PageModel.find().sort([["createdAt", "asc"]]);
   }
 }
