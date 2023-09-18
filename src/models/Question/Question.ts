@@ -7,8 +7,8 @@ export interface Question {
 
 const userSchema = new Schema<Question>(
   {
-    title: { type: String, required: true },
-    description: { type: String, required: true },
+    title: { type: String, required: true, max: 200 },
+    description: { type: String, required: true, max: 3000 },
   },
   { timestamps: true }
 );
