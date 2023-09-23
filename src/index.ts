@@ -69,10 +69,14 @@ export class App {
       process.env.MONGO_URI || "mongodb://localhost:27017/wiscro";
     await connect(mongoUrl);
 
+    if (!process.env.SESSION_SECRET) {
+      throw new Error("Please set session secret!");
+    }
+
     this.app.use(
       session({
         rolling: true,
-        secret: process.env.SESSION_SECRET || "Please set session secret!",
+        secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: true,
         cookie: {
