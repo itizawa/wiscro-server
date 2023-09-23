@@ -4,10 +4,10 @@ import { RetrieveQuestionUseCase } from "~/useCases/Question/RetrieveQuestionUse
 const retrieveQuestionUseCase = new RetrieveQuestionUseCase();
 
 export const getQuestion = async (
-  req: Request<object, object, object, { id: string }>,
+  req: Request<{ id: string }, object, object, { id: string }>,
   res: Response
 ) => {
-  const { id } = req.query;
+  const { id } = req.params;
   try {
     const question = await retrieveQuestionUseCase.execute({
       id,
