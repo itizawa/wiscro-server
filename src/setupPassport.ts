@@ -12,7 +12,7 @@ const callbackURL = process.env.GOOGLE_CALLBACK_URL;
 export const setupPassport = (app: Express) => {
   //セッションに保存
   passport.serializeUser((user: Pick<User, "_id">, done) => {
-    done(null, user._id);
+    done(null, user);
   });
 
   //セッションから保存されたデータを呼び出し
@@ -98,7 +98,7 @@ export const setupPassport = (app: Express) => {
         if (err) {
           return next();
         }
-        return res.redirect(process.env.WEBEV_FRONT_URL);
+        return res.redirect(process.env.WISCRO_FRONT_URL);
       });
     }
   );
