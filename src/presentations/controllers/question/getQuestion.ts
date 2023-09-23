@@ -12,8 +12,8 @@ export const getQuestion = async (
     const question = await retrieveQuestionUseCase.execute({
       id,
     });
-    return res.status(200).json({ question });
+    return res.status(200).send({ question });
   } catch (error) {
-    return res.status(503).json({ message: "予期せぬエラーが発生しました" });
+    return res.status(503).send({ message: "予期せぬエラーが発生しました" });
   }
 };
