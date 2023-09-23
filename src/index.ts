@@ -81,6 +81,7 @@ export class App {
         saveUninitialized: true,
         cookie: {
           maxAge: 1000 * 60 * 60 * 24 * 30, // 30day
+          sameSite: "none",
         },
         store: MongoStore.create({
           mongoUrl,
