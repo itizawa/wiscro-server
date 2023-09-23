@@ -15,7 +15,7 @@ const userSchema = new Schema<User>(
     email: { type: String, required: true },
     profileUrl: String,
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const UserModel = model<User>("User", userSchema);

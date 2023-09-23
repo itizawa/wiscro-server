@@ -24,5 +24,11 @@ module.exports = {
     'object-shorthand': 'error',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
-  },
+    'prettier/prettier': [
+      'error',
+      {
+        trailingComma: 'all',
+      },
+    ],
+},
 };
