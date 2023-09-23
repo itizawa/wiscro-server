@@ -3,7 +3,7 @@ import { Express } from "express";
 import passport from "passport";
 
 import { OAuth2Strategy as GoogleStrategy } from "passport-google-oauth";
-import { User, UserModel } from "~/models/User";
+import { UserModel } from "~/models/User";
 
 const clientID = process.env.GOOGLE_CLIENT_ID;
 const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
@@ -11,8 +11,8 @@ const callbackURL = process.env.GOOGLE_CALLBACK_URL;
 
 export const setupPassport = (app: Express) => {
   //セッションに保存
-  passport.serializeUser((user: Pick<User, "_id">, done) => {
-    done(null, user);
+  passport.serializeUser((user: { id: string }, done) => {
+    done(null, user.id);
   });
 
   //セッションから保存されたデータを呼び出し
