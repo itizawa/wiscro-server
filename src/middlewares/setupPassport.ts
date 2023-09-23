@@ -3,7 +3,7 @@ import { Express } from "express";
 import passport from "passport";
 
 import { OAuth2Strategy as GoogleStrategy } from "passport-google-oauth";
-import { User, UserModel } from "./models/User/User";
+import { User, UserModel } from "~/models/User";
 
 const clientID = process.env.GOOGLE_CLIENT_ID;
 const clientSecret = process.env.GOOGLE_CLIENT_SECRET;

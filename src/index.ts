@@ -2,13 +2,13 @@ import express from "express";
 import { Mongoose, connect } from "mongoose";
 import { setupExpressRoutes } from "./presentations/controllers";
 import cors from "cors";
-import { setupPassport } from "./setupPassport";
+import { setupPassport } from "./middlewares/setupPassport";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import { createServer, Server as httpServer } from "http";
 import mongoSanitize from "express-mongo-sanitize";
 import rateLimit from "express-rate-limit";
-import { requestLoggerMiddleware } from "./request-logger";
+import { requestLoggerMiddleware } from "./middlewares/request-logger";
 
 /*****************************
  * Main Process              *
