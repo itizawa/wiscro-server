@@ -12,7 +12,7 @@ import { logger } from "~/utils/logger";
 export const loginRequired = (
   req: Request & { user: User },
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): Response | void => {
   if (req.user == null) {
     logger("Error: login required", "error");

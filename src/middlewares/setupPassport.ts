@@ -41,8 +41,8 @@ export const setupPassport = (app: Express) => {
         }
 
         return done(null, false);
-      }
-    )
+      },
+    ),
   );
 
   app.use(passport.initialize());
@@ -58,7 +58,7 @@ export const setupPassport = (app: Express) => {
     "/auth/google",
     passport.authenticate("google", {
       scope: ["profile", "email"],
-    })
+    }),
   );
 
   app.get(
@@ -100,6 +100,6 @@ export const setupPassport = (app: Express) => {
         }
         return res.redirect(process.env.WISCRO_FRONT_URL);
       });
-    }
+    },
   );
 };
