@@ -10,7 +10,7 @@ import { logger } from "~/utils/logger";
 export const requestLoggerMiddleware = (
   req: express.Request,
   res: express.Response,
-  next: express.NextFunction
+  next: express.NextFunction,
 ) => {
   logger(`${req.method} ${req.originalUrl}`);
   const start = new Date().getTime();
