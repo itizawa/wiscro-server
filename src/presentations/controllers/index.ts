@@ -9,7 +9,7 @@ import { postAnswer } from "./answer/postAnswer";
 import { getAnswersByQuestionId } from "./question/getAnswersByQuestionId";
 
 export const setupExpressRoutes = (express: express.Express): void => {
-  express.post("/api/answers", postAnswer);
+  express.post("/api/answers", loginRequired, postAnswer);
   express.get("/api/pages", listPages);
   express.post("/api/line", handleLineRequest);
   express.get("/api/questions/:id", getQuestion);
