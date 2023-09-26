@@ -8,7 +8,7 @@ import { loginRequired } from "~/middlewares/loginRequired";
 import { postAnswer } from "./answer/postAnswer";
 
 export const setupExpressRoutes = (express: express.Express): void => {
-  express.get("/api/answers", postAnswer);
+  express.post("/api/answers", postAnswer);
   express.get("/api/pages", listPages);
   express.post("/api/line", handleLineRequest);
   express.get("/api/questions/:id", getQuestion);
