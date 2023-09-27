@@ -5,7 +5,7 @@ const retrieveQuestionUseCase = new RetrieveQuestionUseCase();
 
 export const getQuestion = async (
   req: Request<{ id: string }, object, object, { id: string }>,
-  res: Response
+  res: Response,
 ) => {
   const { id } = req.params;
   try {

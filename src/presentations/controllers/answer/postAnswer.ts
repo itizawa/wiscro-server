@@ -9,11 +9,12 @@ export const postAnswer = async (
   res: Response,
 ) => {
   const { user } = req;
-  const { url } = req.body;
+  const { url, questionId } = req.body;
   try {
     const answer = await createAnswerUseCase.execute({
       currentUser: user,
       url,
+      questionId,
     });
 
     return res.status(200).send({ answer });

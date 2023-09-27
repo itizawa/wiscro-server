@@ -5,12 +5,14 @@ export class CreateAnswerUseCase {
   async execute({
     currentUser,
     url,
-  }: Pick<Answer, "url"> & {
+    questionId,
+  }: Pick<Answer, "url" | "questionId"> & {
     currentUser: User;
   }): Promise<Answer> {
     return await AnswerModel.create({
       url,
       createdUserId: currentUser._id,
+      questionId,
     });
   }
 }
