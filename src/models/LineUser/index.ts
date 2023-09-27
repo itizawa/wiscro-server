@@ -1,1 +1,0 @@
-export { LineUser } from "./LineUser";
