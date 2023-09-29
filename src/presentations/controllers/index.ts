@@ -6,9 +6,11 @@ import { getCurrentUser } from "./user/getCurrentUser";
 import { loginRequired } from "~/middlewares/loginRequired";
 import { postAnswer } from "./answer/postAnswer";
 import { getAnswersByQuestionId } from "./question/getAnswersByQuestionId";
+import { getQuestions } from "./question/getQuestions";
 
 export const setupExpressRoutes = (express: express.Express): void => {
   express.post("/api/answers", loginRequired, postAnswer);
+  express.get("/api/questions", getQuestions);
   express.get("/api/questions/:id", getQuestion);
   express.get("/api/questions/:id/answers", getAnswersByQuestionId);
   express.post("/api/questions", loginRequired, postQuestion);
