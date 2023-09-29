@@ -842,9 +842,9 @@
     mongoose "*"
 
 "@types/node@*":
-  version "20.6.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.6.3.tgz#5b763b321cd3b80f6b8dde7a37e1a77ff9358dd9"
-  integrity sha512-HksnYH4Ljr4VQgEy2lTStbCKv/P590tmPe5HqOnv9Gprffgv5WXAY+Y5Gqniu0GGqeTCUdBnzC3QSrzPkBkAMA==
+  version "20.7.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.7.2.tgz#0bdc211f8c2438cfadad26dc8c040a874d478aed"
+  integrity sha512-RcdC3hOBOauLP+r/kRt27NrByYtDjsXyAuSbR87O6xpsvi763WI+5fbSIvYJrXnt9w4RuxhV6eAXfIs7aaf/FQ==
 
 "@types/node@^18.15.8":
   version "18.17.18"
@@ -903,9 +903,9 @@
   integrity sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==
 
 "@types/webidl-conversions@*":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@types/webidl-conversions/-/webidl-conversions-7.0.0.tgz#2b8e60e33906459219aa587e9d1a612ae994cfe7"
-  integrity sha512-xTE1E+YF4aWPJJeUzaZI5DRntlkY3+BCVJi0axFptnjGmAoWxkyREIh/XMrfxVLejwQxMCfDXdICo0VLxThrog==
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@types/webidl-conversions/-/webidl-conversions-7.0.1.tgz#2b9a2062b39a7272343c185cdb884f2e52188f75"
+  integrity sha512-8hKOnOan+Uu+NgMaCouhg3cT9x5fFZ92Jwf+uDLXLu/MFRbXxlWwGeQY7KVHkeSft6RvY+tdxklUBuyY9eIEKg==
 
 "@types/whatwg-url@^8.2.1":
   version "8.2.2"
@@ -3739,9 +3739,9 @@ mongodb@5.8.1:
     "@mongodb-js/saslprep" "^1.1.0"
 
 mongoose@*, mongoose@^7.0.3:
-  version "7.5.2"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.5.2.tgz#1561cd1fe93c8453e65cea73203ce7eadc5deb7b"
-  integrity sha512-yEkmI1jfiog7QUvMWz3eB/XoA3/5DrVvSz+z3V5hnq8VtZIHC7ujEV0RKzRXwr8QNMOs+OTB7+aK7R/N/V3yXA==
+  version "7.5.3"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.5.3.tgz#89ef67f8125c11a0e4db70317c7f6a730151c525"
+  integrity sha512-QyYzhZusux0wIJs+4rYyHvel0kJm0CT887trNd1WAB3iQnDuJow0xEnjETvuS/cTjHQUVPihOpN7OHLlpJc52w==
   dependencies:
     bson "^5.4.0"
     kareem "2.5.1"
