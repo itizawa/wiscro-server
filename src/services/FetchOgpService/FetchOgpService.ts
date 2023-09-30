@@ -41,8 +41,8 @@ export class FetchOgpService {
 
           // replace img and iframe
           const regex = /<img(.|\s)*?>|<iframe(.|\s)*?>/gi;
-          const body = article.content
-            ? article?.content?.replace(regex, "")
+          const body = article.textBody
+            ? article?.textBody?.replace(regex, "")
             : null;
 
           resolve({
