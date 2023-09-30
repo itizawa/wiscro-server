@@ -1,6 +1,7 @@
 import { Schema, Types, model } from "mongoose";
 
 export interface Answer {
+  _id: Types.ObjectId;
   url: string;
   createdUserId: Types.ObjectId;
   questionId: Types.ObjectId;
@@ -10,6 +11,7 @@ export interface Answer {
   image?: string;
   body?: string;
   siteName?: string;
+  isFetching: boolean;
 }
 
 const schema = new Schema<Answer>(
@@ -23,6 +25,7 @@ const schema = new Schema<Answer>(
     image: { type: String },
     body: { type: String },
     siteName: { type: String },
+    isFetching: { type: Boolean, default: false },
   },
   { timestamps: true },
 );

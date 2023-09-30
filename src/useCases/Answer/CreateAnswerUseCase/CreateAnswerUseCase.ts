@@ -12,12 +12,26 @@ export class CreateAnswerUseCase {
   }: Pick<Answer, "url" | "questionId"> & {
     currentUser: User;
   }): Promise<Answer> {
-    const ogp = await fetchOgpService.fetchOgpByUrl(url);
-    return await AnswerModel.create({
-      ...ogp,
+    const answer = await AnswerModel.create({
       url,
+      title: url,
+      description: "取得中です",
       createdUserId: currentUser._id,
       questionId,
+      isFetching: true,
     });
+
+    this.fetchAndSummarizeOgp(answer, url);
+
+    return answer;
   }
+
+  fetchAndSummarizeOgp = async (answer: Answer, url: string) => {
+    const ogp = await fetchOgpService.fetchOgpByUrl(url);
+
+    await AnswerModel.updateOne(
+      { _id: answer._id },
+      { ...ogp, isFetching: false },
+    );
+  };
 }
