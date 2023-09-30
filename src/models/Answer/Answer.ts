@@ -12,7 +12,7 @@ export interface Answer {
   siteName?: string;
 }
 
-const userSchema = new Schema<Answer>(
+const schema = new Schema<Answer>(
   {
     url: { type: String, required: true },
     createdUserId: { type: Schema.Types.ObjectId, ref: "User" },
@@ -27,4 +27,4 @@ const userSchema = new Schema<Answer>(
   { timestamps: true },
 );
 
-export const AnswerModel = model<Answer>("Answer", userSchema);
+export const AnswerModel = model<Answer>("Answer", schema);
