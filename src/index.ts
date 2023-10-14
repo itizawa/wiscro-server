@@ -48,7 +48,7 @@ export class App {
       cors({
         origin: true,
         credentials: true,
-      })
+      }),
     );
     this.app.use(express.json());
     this.app.use(
@@ -57,7 +57,7 @@ export class App {
         max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
         standardHeaders: "draft-7", // Return rate limit info in the `RateLimit-*` headers
         legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-      })
+      }),
     );
     this.app.use(mongoSanitize());
 
@@ -85,7 +85,7 @@ export class App {
         store: MongoStore.create({
           mongoUrl,
         }),
-      })
+      }),
     );
   }
 }
