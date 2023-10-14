@@ -29,7 +29,7 @@ export class CreateAnswerUseCase {
 
   fetchAndSummarizeOgp = async (answer: Answer, url: string) => {
     const ogp = await fetchOgpService.fetchOgpByUrl(url);
-    const response = await openaiService.execute({ text: ogp.body });
+    const response = await openaiService.summarize({ text: ogp.body });
 
     await AnswerModel.updateOne(
       { _id: answer._id },

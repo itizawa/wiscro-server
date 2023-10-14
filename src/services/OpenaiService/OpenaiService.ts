@@ -8,12 +8,12 @@ class OpenaiService {
     });
   }
 
-  async execute({ text }: { text: string }) {
+  async summarize({ text }: { text: string }) {
     const chatCompletion = await this.openaiClient.chat.completions.create({
       messages: [
         {
           role: "user",
-          content: `以下の文章を要約してください\n回答は300文字以内の常体で記述してください\n\n${text}`,
+          content: `以下の文章を要約してください\n回答は150文字以内の常体で記述してください\n\n${text}`,
         },
       ],
       model: "gpt-3.5-turbo",
