@@ -45,6 +45,7 @@
     "express-session": "^1.17.3",
     "mongoose": "^7.0.3",
     "node-readability": "^3.0.0",
+    "openai": "^4.0.0",
     "passport": "^0.6.0",
     "passport-google-oauth": "2.0.0",
     "pino": "^8.15.1",
