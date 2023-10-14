@@ -1,6 +1,7 @@
 import { Answer, AnswerModel } from "~/models/Answer";
 import { User } from "~/models/User";
 import { FetchOgpService } from "~/services/FetchOgpService";
+import { openaiService } from "~/services/OpenaiService";
 
 const fetchOgpService = new FetchOgpService();
 
@@ -28,10 +29,17 @@ export class CreateAnswerUseCase {
 
   fetchAndSummarizeOgp = async (answer: Answer, url: string) => {
     const ogp = await fetchOgpService.fetchOgpByUrl(url);
+    const response = await openaiService.execute({ text: ogp.body });
 
     await AnswerModel.updateOne(
       { _id: answer._id },
-      { ...ogp, isFetching: false },
+      {
+        ...ogp,
+        body: response.choices
+          .map((choice) => choice.message.content)
+          .join(`\n`),
+        isFetching: false,
+      },
     );
   };
 }
