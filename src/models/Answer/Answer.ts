@@ -10,6 +10,7 @@ export interface Answer {
   favicon?: string;
   image?: string;
   body?: string;
+  summary?: string;
   siteName?: string;
   isFetching: boolean;
 }
@@ -24,6 +25,7 @@ const schema = new Schema<Answer>(
     favicon: { type: String },
     image: { type: String },
     body: { type: String },
+    summary: { type: String },
     siteName: { type: String },
     isFetching: { type: Boolean, default: false },
   },

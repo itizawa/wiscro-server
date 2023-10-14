@@ -29,16 +29,24 @@ export class CreateAnswerUseCase {
 
   fetchAndSummarizeOgp = async (answer: Answer, url: string) => {
     const ogp = await fetchOgpService.fetchOgpByUrl(url);
-    const response = await openaiService.summarize({ text: ogp.body });
 
     await AnswerModel.updateOne(
       { _id: answer._id },
       {
         ...ogp,
-        body: response.choices
+        body: ogp.body ? `${ogp.body.substring(0, 300)}..` : "",
+        isFetching: false,
+      },
+    );
+
+    const response = await openaiService.summarize({ text: ogp.body });
+
+    await AnswerModel.updateOne(
+      { _id: answer._id },
+      {
+        summary: response.choices
           .map((choice) => choice.message.content)
           .join(`\n`),
-        isFetching: false,
       },
     );
   };
