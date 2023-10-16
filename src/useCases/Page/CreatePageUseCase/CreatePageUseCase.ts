@@ -1,37 +1,37 @@
-import { Answer, AnswerModel } from "~/models/Answer";
+import { Page, PageModel } from "~/models/Page";
 import { User } from "~/models/User";
 import { FetchOgpService } from "~/services/FetchOgpService";
 import { openaiService } from "~/services/OpenaiService";
 
 const fetchOgpService = new FetchOgpService();
 
-export class CreateAnswerUseCase {
+export class CreatePageUseCase {
   async execute({
     currentUser,
     url,
-    questionId,
-  }: Pick<Answer, "url" | "questionId"> & {
+    noteId,
+  }: Pick<Page, "url" | "noteId"> & {
     currentUser: User;
-  }): Promise<Answer> {
-    const answer = await AnswerModel.create({
+  }): Promise<Page> {
+    const page = await PageModel.create({
       url,
       title: url,
       description: "取得中です",
       createdUserId: currentUser._id,
-      questionId,
+      noteId,
       isFetching: true,
     });
 
-    this.fetchAndSummarizeOgp(answer, url);
+    this.fetchAndSummarizeOgp(page, url);
 
-    return answer;
+    return page;
   }
 
-  fetchAndSummarizeOgp = async (answer: Answer, url: string) => {
+  fetchAndSummarizeOgp = async (page: Page, url: string) => {
     const ogp = await fetchOgpService.fetchOgpByUrl(url);
 
-    await AnswerModel.updateOne(
-      { _id: answer._id },
+    await PageModel.updateOne(
+      { _id: page._id },
       {
         ...ogp,
         body: ogp.body ? `${ogp.body.substring(0, 300)}..` : "",
@@ -41,8 +41,8 @@ export class CreateAnswerUseCase {
 
     const response = await openaiService.summarize({ text: ogp.body });
 
-    await AnswerModel.updateOne(
-      { _id: answer._id },
+    await PageModel.updateOne(
+      { _id: page._id },
       {
         summary: response.choices
           .map((choice) => choice.message.content)

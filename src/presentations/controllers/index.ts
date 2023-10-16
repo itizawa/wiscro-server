@@ -1,18 +1,18 @@
 import * as express from "express";
 
-import { postQuestion } from "./question/postQuestion";
-import { getQuestion } from "./question/getQuestion";
+import { postNote } from "./note/postNote";
+import { getNote } from "./note/getNote";
 import { getCurrentUser } from "./user/getCurrentUser";
 import { loginRequired } from "~/middlewares/loginRequired";
-import { postAnswer } from "./answer/postAnswer";
-import { getAnswersByQuestionId } from "./question/getAnswersByQuestionId";
-import { getQuestions } from "./question/getQuestions";
+import { postPage } from "./page/postPage";
+import { getPagesByNoteId } from "./note/getPagesByNoteId";
+import { getNotes } from "./note/getNotes";
 
 export const setupExpressRoutes = (express: express.Express): void => {
-  express.post("/api/answers", loginRequired, postAnswer);
-  express.get("/api/questions", getQuestions);
-  express.get("/api/questions/:id", getQuestion);
-  express.get("/api/questions/:id/answers", getAnswersByQuestionId);
-  express.post("/api/questions", loginRequired, postQuestion);
+  express.post("/api/pages", loginRequired, postPage);
+  express.get("/api/notes", getNotes);
+  express.get("/api/notes/:id", getNote);
+  express.get("/api/notes/:id/pages", getPagesByNoteId);
+  express.post("/api/notes", loginRequired, postNote);
   express.get("/api/me", getCurrentUser);
 };

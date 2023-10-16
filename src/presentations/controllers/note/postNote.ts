@@ -1,23 +1,23 @@
 import { Request, Response } from "express";
 import { User } from "~/models/User";
-import { CreateQuestionUseCase } from "~/useCases/Question/CreateQuestionUseCase";
+import { CreateNoteUseCase } from "~/useCases/Note/CreateNoteUseCase";
 
-const createQuestionUseCase = new CreateQuestionUseCase();
+const createNoteUseCase = new CreateNoteUseCase();
 
-export const postQuestion = async (
+export const postNote = async (
   req: Request & { user: User },
   res: Response,
 ) => {
   const { user } = req;
   const { title, description } = req.body;
   try {
-    const question = await createQuestionUseCase.execute({
+    const note = await createNoteUseCase.execute({
       currentUser: user,
       title,
       description,
     });
 
-    return res.status(200).send({ question });
+    return res.status(200).send({ note });
   } catch (error) {
     return res.status(503).send({ message: "予期せぬエラーが発生しました" });
   }
