@@ -9,8 +9,8 @@ export class CreatePageUseCase {
   async execute({
     currentUser,
     url,
-    questionId,
-  }: Pick<Page, "url" | "questionId"> & {
+    noteId,
+  }: Pick<Page, "url" | "noteId"> & {
     currentUser: User;
   }): Promise<Page> {
     const page = await PageModel.create({
@@ -18,7 +18,7 @@ export class CreatePageUseCase {
       title: url,
       description: "取得中です",
       createdUserId: currentUser._id,
-      questionId,
+      noteId,
       isFetching: true,
     });
 

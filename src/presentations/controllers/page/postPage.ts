@@ -9,12 +9,12 @@ export const postPage = async (
   res: Response,
 ) => {
   const { user } = req;
-  const { url, questionId } = req.body;
+  const { url, noteId } = req.body;
   try {
     const page = await createPageUseCase.execute({
       currentUser: user,
       url,
-      questionId,
+      noteId,
     });
 
     return res.status(200).send({ page });

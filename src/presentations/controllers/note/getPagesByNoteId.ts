@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { ListPagesByQuestionIdUseCase } from "~/useCases/Page/ListPagesByQuestionIdUseCase";
+import { ListPagesByNoteIdUseCase } from "~/useCases/Page/ListPagesByNoteIdUseCase";
 
-const listPagesByQuestionIdUseCase = new ListPagesByQuestionIdUseCase();
+const listPagesByNoteIdUseCase = new ListPagesByNoteIdUseCase();
 
-export const getPagesByQuestionId = async (
+export const getPagesByNoteId = async (
   req: Request<
     { id: string },
     object,
@@ -12,11 +12,11 @@ export const getPagesByQuestionId = async (
   >,
   res: Response,
 ) => {
-  const { id: questionId } = req.params;
+  const { id: noteId } = req.params;
 
   try {
-    const pages = await listPagesByQuestionIdUseCase.execute({
-      questionId,
+    const pages = await listPagesByNoteIdUseCase.execute({
+      noteId,
     });
     return res.status(200).send({ pages });
   } catch (error) {

@@ -4,7 +4,7 @@ export interface Page {
   _id: Types.ObjectId;
   url: string;
   createdUserId: Types.ObjectId;
-  questionId: Types.ObjectId;
+  noteId: Types.ObjectId;
   title: string;
   description: string;
   favicon?: string;
@@ -19,7 +19,7 @@ const schema = new Schema<Page>(
   {
     url: { type: String, required: true },
     createdUserId: { type: Schema.Types.ObjectId, ref: "User" },
-    questionId: { type: Schema.Types.ObjectId, ref: "Question" },
+    noteId: { type: Schema.Types.ObjectId, ref: "Note" },
     title: { type: String, required: true },
     description: { type: String, required: true },
     favicon: { type: String },

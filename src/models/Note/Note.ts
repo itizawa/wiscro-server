@@ -1,12 +1,12 @@
 import { Schema, Types, model } from "mongoose";
 
-export interface Question {
+export interface Note {
   title: string;
   description: string;
   createdUserId: Types.ObjectId;
 }
 
-const userSchema = new Schema<Question>(
+const userSchema = new Schema<Note>(
   {
     title: { type: String, required: true, max: 200 },
     description: { type: String, required: true, max: 3000 },
@@ -15,4 +15,4 @@ const userSchema = new Schema<Question>(
   { timestamps: true },
 );
 
-export const QuestionModel = model<Question>("Question", userSchema);
+export const NoteModel = model<Note>("Note", userSchema);
