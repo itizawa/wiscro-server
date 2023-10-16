@@ -1,6 +1,6 @@
 import { Schema, Types, model } from "mongoose";
 
-export interface Answer {
+export interface Page {
   _id: Types.ObjectId;
   url: string;
   createdUserId: Types.ObjectId;
@@ -15,7 +15,7 @@ export interface Answer {
   isFetching: boolean;
 }
 
-const schema = new Schema<Answer>(
+const schema = new Schema<Page>(
   {
     url: { type: String, required: true },
     createdUserId: { type: Schema.Types.ObjectId, ref: "User" },
@@ -32,4 +32,4 @@ const schema = new Schema<Answer>(
   { timestamps: true },
 );
 
-export const AnswerModel = model<Answer>("Answer", schema);
+export const PageModel = model<Page>("Page", schema);

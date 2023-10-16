@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { ListAnswersByQuestionIdUseCase } from "~/useCases/Answer/ListAnswersByQuestionIdUseCase";
+import { ListPagesByQuestionIdUseCase } from "~/useCases/Page/ListPagesByQuestionIdUseCase";
 
-const listAnswersByQuestionIdUseCase = new ListAnswersByQuestionIdUseCase();
+const listPagesByQuestionIdUseCase = new ListPagesByQuestionIdUseCase();
 
-export const getAnswersByQuestionId = async (
+export const getPagesByQuestionId = async (
   req: Request<
     { id: string },
     object,
@@ -15,10 +15,10 @@ export const getAnswersByQuestionId = async (
   const { id: questionId } = req.params;
 
   try {
-    const answers = await listAnswersByQuestionIdUseCase.execute({
+    const pages = await listPagesByQuestionIdUseCase.execute({
       questionId,
     });
-    return res.status(200).send({ answers });
+    return res.status(200).send({ pages });
   } catch (error) {
     return res.status(503).send({ message: "予期せぬエラーが発生しました" });
   }
