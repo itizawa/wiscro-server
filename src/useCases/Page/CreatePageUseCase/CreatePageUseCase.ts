@@ -1,7 +1,7 @@
 import { Page, PageModel } from "~/models/Page";
 import { User } from "~/models/User";
 import { FetchOgpService } from "~/services/FetchOgpService";
-import { openaiService } from "~/services/OpenaiService";
+// import { openaiService } from "~/services/OpenaiService";
 
 const fetchOgpService = new FetchOgpService();
 
@@ -39,15 +39,15 @@ export class CreatePageUseCase {
       },
     );
 
-    const response = await openaiService.summarize({ text: ogp.body });
+    // const response = await openaiService.summarize({ text: ogp.body });
 
-    await PageModel.updateOne(
-      { _id: page._id },
-      {
-        summary: response.choices
-          .map((choice) => choice.message.content)
-          .join(`\n`),
-      },
-    );
+    // await PageModel.updateOne(
+    //   { _id: page._id },
+    //   {
+    //     summary: response.choices
+    //       .map((choice) => choice.message.content)
+    //       .join(`\n`),
+    //   },
+    // );
   };
 }
