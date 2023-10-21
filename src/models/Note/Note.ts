@@ -5,7 +5,7 @@ export interface Note {
   description: string;
   createdUserId: Types.ObjectId;
   latestPageId: Types.ObjectId;
-  latestPostPageAt: Date;
+  latestPostPageAt?: Date;
 }
 
 const userSchema = new Schema<Note>(
