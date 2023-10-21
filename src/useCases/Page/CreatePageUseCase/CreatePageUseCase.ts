@@ -23,9 +23,10 @@ export class CreatePageUseCase {
       isFetching: true,
     });
 
-    await NoteModel.updateOne(
+    await NoteModel.findOneAndUpdate(
       { _id: noteId },
-      { latestPageId: page._id, lastPostPageAt: new Date() },
+      { latestPageId: page._id, latestPostPageAt: new Date() },
+      { upsert: true },
     );
 
     this.fetchAndSummarizeOgp(page, url);
