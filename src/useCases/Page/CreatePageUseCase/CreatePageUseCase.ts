@@ -1,3 +1,4 @@
+import { NoteModel } from "~/models/Note";
 import { Page, PageModel } from "~/models/Page";
 import { User } from "~/models/User";
 import { FetchOgpService } from "~/services/FetchOgpService";
@@ -21,6 +22,11 @@ export class CreatePageUseCase {
       noteId,
       isFetching: true,
     });
+
+    await NoteModel.updateOne(
+      { _id: noteId },
+      { latestPageId: page._id, lastPostPageAt: new Date() },
+    );
 
     this.fetchAndSummarizeOgp(page, url);
 
