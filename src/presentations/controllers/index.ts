@@ -7,11 +7,13 @@ import { loginRequired } from "~/middlewares/loginRequired";
 import { postPage } from "./page/postPage";
 import { getPagesByNoteId } from "./note/getPagesByNoteId";
 import { getNotes } from "./note/getNotes";
+import { patchNote } from "./note/patchNote";
 
 export const setupExpressRoutes = (express: express.Express): void => {
   express.post("/api/pages", loginRequired, postPage);
   express.get("/api/notes", getNotes);
   express.get("/api/notes/:id", getNote);
+  express.patch("/api/notes/:id", patchNote);
   express.get("/api/notes/:id/pages", getPagesByNoteId);
   express.post("/api/notes", loginRequired, postNote);
   express.get("/api/me", getCurrentUser);
