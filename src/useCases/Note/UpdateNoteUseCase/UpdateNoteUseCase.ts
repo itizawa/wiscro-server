@@ -14,7 +14,7 @@ export class UpdateNoteUseCase {
     currentUser: User;
   }): Promise<Note> {
     return await NoteModel.findOneAndUpdate(
-      { _id: id, user: currentUser._id },
+      { _id: id, createdUserId: currentUser._id },
       { title, description },
     );
   }
