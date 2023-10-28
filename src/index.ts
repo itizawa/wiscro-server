@@ -80,11 +80,7 @@ export class App {
         resave: false,
         saveUninitialized: true,
         cookie: {
-          domain: ".wiscro.app",
-          path: "/",
           maxAge: 1000 * 60 * 60 * 24 * 30, // 30day
-          sameSite: "none",
-          secure: true,
         },
         store: MongoStore.create({
           mongoUrl,
