@@ -21,7 +21,7 @@
     "deploy": "yarn build && gcloud run deploy --source ."
   },
   "devDependencies": {
-    "@tsed/common": "^7.75.0",
+    "@tsed/common": "7.75.0",
     "@tsed/core": "^7.75.0",
     "@tsed/di": "^7.75.0",
     "@tsed/exceptions": "^7.75.0",
