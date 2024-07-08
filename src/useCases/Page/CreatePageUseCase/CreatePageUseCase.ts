@@ -14,7 +14,7 @@ export class CreatePageUseCase {
     const page = await PageModel.create({
       url,
       title: url,
-      description: "取得中です!",
+      description: "取得中です",
       createdUserId: currentUser._id,
       noteId,
       isFetching: true,
