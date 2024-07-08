@@ -31,15 +31,5 @@ export class CreatePageUseCase {
     return page;
   }
 
-  fetchAndSummarizeOgp = async () => {
-    // const response = await openaiService.summarize({ text: ogp.body });
-    // await PageModel.updateOne(
-    //   { _id: page._id },
-    //   {
-    //     summary: response.choices
-    //       .map((choice) => choice.message.content)
-    //       .join(`\n`),
-    //   },
-    // );
-  };
+  fetchAndSummarizeOgp = async () => {};
 }
