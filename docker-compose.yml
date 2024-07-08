@@ -1,7 +1,13 @@
-version: '3.8'
 services:
-  mongo:
-    image: mongo:7.0
-    container_name: wiscro_server_db
+  db:
+    image: postgres:14
+    container_name: postgres_wiscro
     ports:
-      - 27017:27017
+      - 5432:5432
+    volumes:
+      - db-store:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: 'user'
+      POSTGRES_PASSWORD: 'postgres'
+volumes:
+  db-store:
