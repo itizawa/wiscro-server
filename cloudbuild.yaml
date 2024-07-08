@@ -1,10 +1,9 @@
- steps:
- - name: 'node'
-    entrypoint: 'npm'
-    args: ['install']
- - name: 'node'
-    entrypoint: 'npm'
-    args: ['test']
- - name: 'node'
-    entrypoint: 'npm'
-    args: ['run', 'build']
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/wiscro/express-app:latest', '.']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/wiscro/express-app:latest']
+
+images:
+- 'gcr.io/wiscro/express-app:latest'
