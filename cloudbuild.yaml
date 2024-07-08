@@ -1,9 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/wiscro/express-app:latest', '.']
+  args: ['build', '-t', 'gcr.io/wiscro/wiscro-server:latest', '.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/wiscro/express-app:latest']
+  args: ['push', 'gcr.io/wiscro/wiscro-server:latest']
 
 images:
-- 'gcr.io/wiscro/express-app:latest'
+- 'gcr.io/wiscro/wiscro-server:latest'
+
