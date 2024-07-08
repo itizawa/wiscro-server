@@ -1,6 +1,6 @@
 {
-  "name": "line-stock",
-  "version": "1.0.0",
+  "name": "wiscro-server",
+  "version": "0.9.9",
   "main": "index.js",
   "repository": "git@github.com:itizaworld/line-stock.git",
   "author": "itizawa <itizawa.pen@gmail.com>",
@@ -13,17 +13,17 @@
     "test:coverage": "cross-env NODE_ENV=test jest",
     "tsc": "tsc --project tsconfig.json",
     "tsc:w": "tsc --project tsconfig.json -w",
-    "start": "nodemon --watch \"src/**/*.ts\" --ignore \"node_modules/**/*\" --exec ts-node src/index.ts",
-    "start:prod": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "yarn build && node dist/index.js",
+    "start:prod": "yarn build && cross-env NODE_ENV=production node dist/index.js",
     "docker:build": "yarn build && docker-compose build",
     "lint": "eslint src/**/**.ts",
     "dev": "env-cmd -f ./.env ts-node-dev -r tsconfig-paths/register src/index.ts",
     "deploy": "yarn build && gcloud run deploy --source ."
   },
   "devDependencies": {
-    "@tsed/common": "^7.75.0",
-    "@tsed/core": "^7.75.0",
-    "@tsed/di": "^7.75.0",
+    "@tsed/common": "7.75.0",
+    "@tsed/core": "7.75.0",
+    "@tsed/di": "7.75.0",
     "@tsed/exceptions": "^7.75.0",
     "@tsed/json-mapper": "^7.75.0",
     "@tsed/platform-express": "^7.75.0",
@@ -47,11 +47,10 @@
     "ts-jest": "29.1.1",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.1.2",
-    "typescript": "^5.5.3"
+    "typescript": "5.5.3"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "cheerio-httpcli": "^0.8.3",
+    "body-parser": "1.20.2",
     "compression": "^1.7.4",
     "connect-mongo": "^5.0.0",
     "cookie-parser": "^1.4.6",
@@ -64,7 +63,6 @@
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
     "mongoose": "^7.0.3",
-    "node-readability": "^3.0.0",
     "openai": "^4.0.0",
     "passport": "^0.6.0",
     "passport-google-oauth": "2.0.0",

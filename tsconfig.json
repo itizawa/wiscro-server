@@ -15,7 +15,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "target": "es2018",
     "lib": ["es7", "dom", "esnext.asynciterable"],
     "typeRoots": ["./node_modules/@types"],
