@@ -697,7 +697,7 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.3.tgz#472eaab5f15c1ffdd7f8628bd4c4f753995ec79e"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
-"@tsed/common@^7.75.0":
+"@tsed/common@7.75.0":
   version "7.75.0"
   resolved "https://registry.yarnpkg.com/@tsed/common/-/common-7.75.0.tgz#2bd4516a6eb710078186ac9da76e689bf355d233"
   integrity sha512-Adsqqde2VHSjdaQjDSKk7zwO1vaEgZFRWMJBM2cHp5UCDMdZ914V3bvDDxg8mfrpFN/JvELyIiOggCtq4OyLeA==
@@ -721,7 +721,7 @@
     tslib "2.6.1"
     uuid "9.0.1"
 
-"@tsed/core@7.75.0", "@tsed/core@^7.75.0":
+"@tsed/core@7.75.0":
   version "7.75.0"
   resolved "https://registry.yarnpkg.com/@tsed/core/-/core-7.75.0.tgz#58c8823cc80dbe9a6b98277215bf4e88fe765200"
   integrity sha512-gmC+rozkVSLNKrOVUJEAKdhzpm0pgceMPEXPQqH6NRToEnTGpU7KbT6Lx53p/+bUSAgmJnwL+NRLSnH5aEIO3g==
